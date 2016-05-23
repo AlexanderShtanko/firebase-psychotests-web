@@ -1,0 +1,110 @@
+<!--
+* INSPINIA - Responsive Admin Theme
+* Version 2.5
+*
+-->
+
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+
+    <!-- Font awesome -->
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap and Fonts -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bower -->
+    <link href="bower_components/angular-notify/dist/angular-notify.min.css" rel="stylesheet">
+    <link href="bower_components/AngularJS-Toaster/toaster.css" rel="stylesheet">
+    <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="bower_components/angular-datepicker/dist/angular-datepicker.min.css" rel="stylesheet">
+    <link href="bower_components/angular-ui-select/dist/select.min.css" rel="stylesheet">
+
+    <!-- Main Inspinia CSS files -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link id="loadBefore" href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body ng-controller="MainCtrl as main" md-skin>
+
+<!-- Main view  -->
+<div ui-view></div>
+
+<!-- jQuery and Bootstrap -->
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+<script src="js/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- MetsiMenu -->
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+<!-- SlimScroll -->
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Peace JS -->
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+
+<!-- Main Angular scripts-->
+<script src="js/angular/angular.min.js"></script>
+<script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="js/ui-router/angular-ui-router.min.js"></script>
+<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="bower_components/angular-notify/dist/angular-notify.min.js"></script>
+<script src="bower_components/ng-idle/angular-idle.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+<script src="bower_components/moment/min/moment-with-locales.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
+<script src="bower_components/trianglify/dist/trianglify.min.js"></script>
+<script src="bower_components/angular-trianglify/angular-trianglify.js"></script>
+<script src="bower_components/ng-letter-avatar/dist/ngletteravatar.min.js"></script>
+<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+
+<!-- Anglar App Script -->
+<script src="js/app.js"></script>
+<script src="js/config.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/models/models.js"></script>
+<script src="js/services/connect-service.js"></script>
+<script src="js/services/storage-service.js"></script>
+<script src="js/controllers.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB3kwnIFS337X3iRrLigwYF62u8zMeJy8w",
+    authDomain: "project-2631367029004918735.firebaseapp.com",
+    databaseURL: "https://project-2631367029004918735.firebaseio.com",
+    storageBucket: "project-2631367029004918735.appspot.com"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+</script>
+
+
+</body>
+</html>

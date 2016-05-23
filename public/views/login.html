@@ -1,0 +1,27 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">PT</h1>
+        </div>
+        <h3>Добро пожаловать в Psycho Tests</h3>
+        <p>Perfectly designed and precisely prepared service for conversation rooms booking
+        </p>
+        <p>Войти. Чтобы увидеть в действии.</p>
+        <form class="m-t" role="form" ng-submit="doSubmit()">
+            <div class="form-group">
+                <input type="email" ng-model="email" class="form-control" placeholder="Username" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" ng-model="password" class="form-control" placeholder="Password" required="">
+            </div>
+            <div ng-bind="err" class="error"></div>
+
+            <button type="submit" class="btn btn-primary block full-width m-b">Войти</button>
+
+            <a ui-sref="forgot"><small>Забыли пароль?</small></a>
+            <p class="text-muted text-center"><small>Не зарегистрированы?</small></p>
+            <a class="btn btn-sm btn-white btn-block" ui-sref="register">Зарегистрироваться</a>
+        </form>
+        <p class="m-t"> <small><a href="https://www.plany.me">PsychoTests</a></small> </p>
+    </div>
+</div>

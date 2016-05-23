@@ -1,0 +1,40 @@
+{
+  "name": "avatar",
+  "version": "1.4.1",
+  "homepage": "https://github.com/MatthewCallis/avatar",
+  "authors": [
+    "Matthew Callis <matthew.callis@gmail.com>"
+  ],
+  "description": "JavaScript library for showing Gravatars or generating user avatars from initials.",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "avatar",
+    "gravatar",
+    "initials"
+  ],
+  "license": "MIT",
+  "main": [
+    "build/avatar.js",
+    "vendor/md5.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.4.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.4.1",
+    "commit": "6351b410f98e15a9994cc3f982cd85f4da8504b2"
+  },
+  "_source": "https://github.com/MatthewCallis/avatar.git",
+  "_target": "^1.4.1",
+  "_originalSource": "avatar",
+  "_direct": true
+}

@@ -1,0 +1,38 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="profile-element" uib-dropdown>
+                    <a uib-dropdown-toggle href>
+                        <span class="clear">
+                                <span class="block m-t-xs">
+                              <ng-letter-avatar charCount="1"   data="{{main.userName}}" shape="round"></ng-letter-avatar>
+                                <br/>
+                                    <strong class="font-bold">{{main.userName}}</strong>
+                             </span>
+                        <span class="text-muted text-xs block">больше<b class="caret"></b></span>
+                        </span> 
+                    </a>
+                    <ul uib-dropdown-menu="" class="animated fadeInRight m-t-xs" ng-click="logout()">
+                        <li><a href="">Выйти</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    PT+
+                </div>
+
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.tests"><i class="fa fa-cube"></i> <span class="nav-label">Тесты</span>
+                  <span class="label label-warning pull-right">{{tests.length}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.settings"><i class="fa fa-sliders"></i> <span class="nav-label">Настройки</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

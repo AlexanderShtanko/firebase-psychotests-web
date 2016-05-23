@@ -1,0 +1,154 @@
+<toaster-container></toaster-container>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Добавление/редактирование теста</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#/index">Home</a>
+            </li>
+            <li >
+               <a href="#/index/tests">Тесты</a>
+            </li>
+            <li class="active">
+                <strong>Тест</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Описание теста</h5>
+
+                    <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
+   
+</div></div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal ng-pristine ng-valid">
+                     
+                        <div class="form-group"><label class="col-lg-2 control-label">Название</label>
+
+                            <div class="col-lg-10"><input type="text" ng-model="test.info.name" placeholder="Название теста" class="form-control"> 
+                                
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-lg-2 control-label">Категория</label>
+
+                            <div class="col-lg-10"><input type="text" ng-model="test.info.category" placeholder="Выберите или добавьте новую" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-lg-2 control-label">Описание</label>
+
+                            <div class="col-lg-10">
+                                <textarea  placeholder="Краткая информация о тесте" ng-model="test.info.desc" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+     <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Список вопросов</h5>
+
+                    <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
+   
+                    </div>
+                   </div>
+                </div>
+                <div class="ibox-content">
+                  <form class="form-horizontal ng-pristine ng-valid">
+                   
+                  <div ng-repeat="question in test.questions">
+                  <div class="form-group"><label class="col-lg-2 control-label">Вопрос №{{$index+1}}</label>
+                    <div class="col-lg-6">
+                        <input type="text" ng-model="question.text" placeholder="Текст вопроса" class="form-control">             
+                    </div>
+                    <div class="col-lg-4">
+                        <button ng-if="$last" class="btn btn-default" ng-click="removeQuestion($index)">Удалить вопрос</button>            
+                    </div>
+                  </div>
+
+                    <div class="form-group" ng-repeat="variant in question.variants">
+                     <label class="col-lg-2  control-label"><span class="label label-info">{{$index+1}} вариант </span></label>
+                    <div class="row col-lg-10" >
+                    <div class="col-lg-4">
+                        <input type="text" ng-model="variant.text" placeholder="Текст" class="form-control"> 
+                    </div>
+                     <div class="col-lg-3">
+                        <input type="text" ng-model="variant.value" placeholder="Значение" class="form-control"> 
+                    </div>
+                    <div class="col-lg-3" >
+                        <a class="btn btn-white btn-bitbucket" ng-if="question.variants.length>1" ng-click="removeVariant(question,$index)">
+                            <i class="fa fa-times"></i>
+                        </a>
+                        <button ng-if="$last" class="btn btn-default" ng-click="addVariant(question)">Добавить еще</button>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="addQuestion()">Добавить вопрос</button>
+                  </form>
+
+                     <div class="widget  p-lg text-center" ng-if="test.questions==null||test.questions.length==0">
+                <div class="m-b-md">
+                    <i class="fa fa-meh-o fa-4x"></i>
+
+                    <h1 class="m-xs">Еще нет ни одного вопроса</h1>
+
+                    <h3 class="font-bold no-margins">
+                    
+                    </h3>
+                
+                </div>
+        </div>
+                  </div>
+
+                
+     </div>
+       
+    
+    <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Возможные результаты</h5>
+
+                    <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
+   
+                    </div>
+                   </div>
+                </div>
+                <div class="ibox-content">
+                  <form class="form-horizontal ng-pristine ng-valid">
+                   
+                  <div ng-repeat="question in test.questions">
+                  <div class="form-group"><label class="col-lg-2 control-label">Результат №{{$index+1}}</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-model="question.text" placeholder="Текст результата" class="form-control">             
+                    </div>
+                  </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="addResult()">Добавить результат</button>
+                  </form>
+
+                     <div class="widget  p-lg text-center" ng-if="test.results==null||test.results.length==0">
+                <div class="m-b-md">
+                    <i class="fa fa-meh-o fa-4x"></i>
+
+                    <h1 class="m-xs">Еще нет ни одного результата</h1>
+
+                    <h3 class="font-bold no-margins">
+                    
+                    </h3>
+                
+                </div>
+        </div>
+                  </div>
+
+                
+     </div>
+
+    </div>
+  </div>
