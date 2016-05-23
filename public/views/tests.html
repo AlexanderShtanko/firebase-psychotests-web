@@ -15,19 +15,64 @@
 
     </div>
 </div>
-<div class="wrapper wrapper-content animated fadeInRight">
-<button type="button" class="btn btn-primary" style="margin-bottom:10px;" ng-click="addNewTest()">Добавить тест</button>
-     
-    <div class="widget  p-lg text-center" ng-if="tests==null||tests.length==0">
-            <div class="m-b-md">
-                <i class="fa fa-meh-o fa-4x"></i>
 
-                <h1 class="m-xs">Еще нет ни одного теста</h1>
 
-                <h3 class="font-bold no-margins">
-                    
-                </h3>
-                
-            </div>
-        </div>
-  </div>
+
+
+  <div class="wrapper wrapper-content animated fadeInUp">
+
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Список тестов</h5>
+                            <div class="ibox-tools">
+                                <a class="btn btn-primary btn-xs" ng-click="addNewTest()">Добавить новый тест</a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                          <div class="widget  p-lg text-center" ng-if="tests==null||tests.length==0">
+                                  <div class="m-b-md">
+                                      <i class="fa fa-meh-o fa-4x"></i>
+
+                                      <h1 class="m-xs">Еще нет ни одного теста</h1>
+
+                                      <h3 class="font-bold no-margins">
+
+                                      </h3>
+
+                                  </div>
+                              </div>
+
+                            <div class="row m-b-sm m-t-sm">
+                                <div class="col-md-1">
+                                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Обновить</button>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Искать!</button> </span></div>
+                                </div>
+                            </div>
+
+                            <div class="tests-list">
+                                <table class="table table-hover">
+                                    <tbody ng-repeat="(testId,test) in tests">
+                                    <tr>
+                                        <td class="test-category">
+                                            <span class="label label-primary">{{test.info.category}}</span>
+                                        </td>
+                                        <td class="test-name">
+                                            {{test.info.name}}
+                                            <br>
+                                            <small>{{test.info.desc}}</small>
+                                        </td>
+
+                                        <td class="test-actions">
+                                            <a class="btn btn-white btn-sm"><i class="fa fa-pencil" ng-click="editTest(testId)"></i> Редактировать </a>
+                                            <a class="btn btn-white btn-sm"><i class="fa fa-times" ng-click="deleteTest(testId)"></i> Удалить </a>
+                                        </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>

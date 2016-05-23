@@ -22,16 +22,23 @@ app.service("ConnectService", function ($resource, StorageService, $http) {
     };
 
     this.addTest = function (test) {
-        var key = firebase.database().ref().child("tests").push().key;
-        var updates = {};
-        updates['/tests/' + key] = test;
-        return firebase.database().ref().update(updates);
+        return firebase.database().ref().child("tests").push(angular.copy(test));
+
     };
 
-    this.updateTestInfo = function (testId,info) {
-        var updates = {};
-        updates['/tests/' + testId+"/info"] = info;
-        return firebase.database().ref().update(updates);
+    this.removeTest = function (testId) {
+        var testRef = firebase.database().ref("tests/"+testId);
+        return testRef.remove();
+    };
+
+    this.getTest = function (testId) {
+        var testRef = firebase.database().ref("tests/"+testId);
+        return testRef.once('value');
+    };
+
+    this.updateTest = function (testId,test) {
+        var testRef = firebase.database().ref("tests");
+        return testRef.set(updates);
     };
 
 
@@ -50,6 +57,4 @@ app.service("ConnectService", function ($resource, StorageService, $http) {
         testsRef.on('child_removed', callbackRemoved);
         return testsRef.once('value');
     };
-
-
 });

@@ -10,26 +10,26 @@ Test = function () {
 };
 
 TestInfo = function () {
-    this.name = null;
-    this.desc = null;
-    this.image = null;
-    this.category = null;
+    this.name = "";
+    this.desc = "";
+    this.image = "";
+    this.category = "";
 };
 
 TestQuestion = function () {
-    this.text = null;
+    this.text = "";
     this.variants = [];
     this.scores = [];
 }
 
 AnswerVariant = function () {
-    this.text = null;
-    this.value = null;
+    this.text = "";
+    this.value = "";
 }
 
 TestResult = function () {
-    this.text = null;
-    this.image = null;
-    this.rangeMin = null;
-    this.rangeMax = null;
+    this.text = "";
+    this.image = "";
+    this.from = 0;
+    this.to = 0;
 }

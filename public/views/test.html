@@ -24,16 +24,16 @@
                     <h5>Описание теста</h5>
 
                     <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
-   
+
 </div></div>
                 </div>
                 <div class="ibox-content">
                     <form class="form-horizontal ng-pristine ng-valid">
-                     
+
                         <div class="form-group"><label class="col-lg-2 control-label">Название</label>
 
-                            <div class="col-lg-10"><input type="text" ng-model="test.info.name" placeholder="Название теста" class="form-control"> 
-                                
+                            <div class="col-lg-10"><input type="text" ng-model="test.info.name" placeholder="Название теста" class="form-control">
+
                             </div>
                         </div>
                         <div class="form-group"><label class="col-lg-2 control-label">Категория</label>
@@ -55,20 +55,20 @@
                     <h5>Список вопросов</h5>
 
                     <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
-   
+
                     </div>
                    </div>
                 </div>
                 <div class="ibox-content">
                   <form class="form-horizontal ng-pristine ng-valid">
-                   
+
                   <div ng-repeat="question in test.questions">
                   <div class="form-group"><label class="col-lg-2 control-label">Вопрос №{{$index+1}}</label>
                     <div class="col-lg-6">
-                        <input type="text" ng-model="question.text" placeholder="Текст вопроса" class="form-control">             
+                        <input type="text" ng-model="question.text" placeholder="Текст вопроса" class="form-control">
                     </div>
                     <div class="col-lg-4">
-                        <button ng-if="$last" class="btn btn-default" ng-click="removeQuestion($index)">Удалить вопрос</button>            
+                        <button ng-if="$last" class="btn btn-default" ng-click="removeQuestion($index)">Удалить вопрос</button>
                     </div>
                   </div>
 
@@ -76,10 +76,10 @@
                      <label class="col-lg-2  control-label"><span class="label label-info">{{$index+1}} вариант </span></label>
                     <div class="row col-lg-10" >
                     <div class="col-lg-4">
-                        <input type="text" ng-model="variant.text" placeholder="Текст" class="form-control"> 
+                        <input type="text" ng-model="variant.text" placeholder="Текст" class="form-control">
                     </div>
                      <div class="col-lg-3">
-                        <input type="text" ng-model="variant.value" placeholder="Значение" class="form-control"> 
+                        <input type="text" ng-model="variant.value" placeholder="Значение" class="form-control">
                     </div>
                     <div class="col-lg-3" >
                         <a class="btn btn-white btn-bitbucket" ng-if="question.variants.length>1" ng-click="removeVariant(question,$index)">
@@ -100,34 +100,46 @@
                     <h1 class="m-xs">Еще нет ни одного вопроса</h1>
 
                     <h3 class="font-bold no-margins">
-                    
+
                     </h3>
-                
+
                 </div>
         </div>
                   </div>
 
-                
+
      </div>
-       
-    
+
+
     <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Возможные результаты</h5>
 
                     <div ibox-tools="" class="ng-scope"><div class="ibox-tools dropdown" uib-dropdown="">
-   
+
                     </div>
                    </div>
                 </div>
                 <div class="ibox-content">
                   <form class="form-horizontal ng-pristine ng-valid">
-                   
-                  <div ng-repeat="question in test.questions">
+
+                  <div ng-repeat="result in test.results">
+
                   <div class="form-group"><label class="col-lg-2 control-label">Результат №{{$index+1}}</label>
                     <div class="col-lg-10">
-                        <input type="text" ng-model="question.text" placeholder="Текст результата" class="form-control">             
+                        <textarea ng-model="result.text" placeholder="Текст результата" class="form-control"></textarea>
                     </div>
+                  </div>
+                  <div class="form-group"><label class="col-lg-2 control-label">Значения результата</label>
+                    <div class="col-lg-3">
+                        <input type="text" ng-model="result.from" placeholder="От" class="form-control">
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="text" ng-model="result.to" placeholder="До" class="form-control">
+                    </div>
+                    <div class="col-lg-3">
+                    <button class="btn btn-default" ng-click="removeResult($index)">Удалить результат</button>
+                  </div>
                   </div>
                     </div>
                     <button class="btn btn-primary" ng-click="addResult()">Добавить результат</button>
@@ -140,15 +152,16 @@
                     <h1 class="m-xs">Еще нет ни одного результата</h1>
 
                     <h3 class="font-bold no-margins">
-                    
+
                     </h3>
-                
+
                 </div>
         </div>
                   </div>
 
-                
+
      </div>
+<button class="btn btn-lg btn-primary" ng-click="saveTest()">Сохранить тест</button>
 
     </div>
   </div>
