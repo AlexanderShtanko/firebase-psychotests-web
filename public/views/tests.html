@@ -42,36 +42,35 @@
                                   </div>
                               </div>
 
-                            <div class="row m-b-sm m-t-sm">
-                                <div class="col-md-1">
-                                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Обновить</button>
-                                </div>
-                                <div class="col-md-11">
-                                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Искать!</button> </span></div>
-                                </div>
-                            </div>
 
                             <div class="tests-list">
-                                <table class="table table-hover">
-                                    <tbody ng-repeat="(testId,test) in tests">
-                                    <tr>
-                                        <td class="test-category">
-                                            <span class="label label-primary">{{test.info.category}}</span>
-                                        </td>
-                                        <td class="test-name">
-                                            {{test.info.name}}
-                                            <br>
-                                            <small>{{test.info.desc}}</small>
-                                        </td>
 
-                                        <td class="test-actions">
-                                            <a class="btn btn-white btn-sm"><i class="fa fa-pencil" ng-click="editTest(testId)"></i> Редактировать </a>
-                                            <a class="btn btn-white btn-sm"><i class="fa fa-times" ng-click="deleteTest(testId)"></i> Удалить </a>
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                                    <div ng-repeat="(testId,test) in tests">
+                                    <div class="row">
+                                        <div class="test-category col-lg-1">
+                                            <span class="label label-primary">{{$index+1}}</span>
+                                        </div>
+
+                                        <div class="test-name col-lg-3">
+                                            <h3>{{test.info.name}}</h3>
+
+
+                                        </div>
+
+                                        <div class="test-name col-lg-3">
+
+                                            {{test.info.desc}}
+                                        </div>
+                                        <div class="test-category col-lg-1">
+                                            <span class="label label-success">{{test.info.category}}</span>
+                                        </div>
+                                        <div class="test-actions col-lg-4 ">
+                                            <a class="btn btn-white btn-sm" ng-click="editTest(testId)"><i class="fa fa-pencil" ></i> Редактировать </a>
+                                            <a class="btn btn-white btn-sm" ng-click="removeTest(testId)"><i class="fa fa-times" ></i> Удалить </a>
+                                        </div>
+                                    </div>
+                                  </div>
+
                             </div>
                         </div>
                     </div>

@@ -57,13 +57,14 @@ function MainCtrl($scope, ConnectService, StorageService,toaster) {
     this.descriptionText = '';
 };
 
-function TestsCtrl($scope, ConnectService, StorageService, toaster,$location,$uibModal) {
+function TestsCtrl($scope, ConnectService,$rootScope, StorageService, toaster,$location,$uibModal) {
    $scope.tests=[];
    $scope.addNewTest=function(){
-       $location.path("/index/test");
+       $location.path("/index/test/");
    }
 
    $scope.editTest=function(testId){
+     $location.path("/index/test/"+testId);
    }
 
    $scope.removeTest=function(testId){
@@ -100,8 +101,10 @@ function TestsCtrl($scope, ConnectService, StorageService, toaster,$location,$ui
      .then(function(tests){
        console.log("tests");
        console.log(tests.val());
+       $rootScope.$apply(function() {
+         $scope.tests=tests.val();
 
-       $scope.tests=tests;
+       });
      })
      .catch(function(error){
        console.log(error);
@@ -117,11 +120,11 @@ function TestCtrl($scope,$rootScope,$location, ConnectService, StorageService,$s
 
    function getTest(testId)
    {
-     StorageService.getTest(testId)
+     ConnectService.getTest(testId)
      .then(function(test){
-
+       console.log(test.val());
        $scope.test = test.val();
-       
+
        if($scope.test.info == undefined || $scope.test.info == null)
        {
          $scope.test.info = new TestInfo();
@@ -140,14 +143,15 @@ function TestCtrl($scope,$rootScope,$location, ConnectService, StorageService,$s
      })
      .catch(function(error){
        showError(toaster,error.message);
-       redirect("/index/tests",$rootScope,$location);
+       //redirect("/index/tests",$rootScope,$location);
      });
    }
 
-   if($stateParams.testId!=undefined)
+   if($stateParams.testId!=undefined&&$stateParams.testId!=null&&$stateParams.testId!="")
    {
+     console.log("testId: !!"+$stateParams.testId +"!!");
      $scope.testId = $stateParams.testId;
-     getTest();
+     getTest($stateParams.testId);
    }
    else {
      $scope.testId = null;

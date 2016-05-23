@@ -23,7 +23,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             templateUrl: "views/common/content.html"
         })
         .state('index.tests', {
-            url: "/tests/:testId",
+            url: "/tests",
             templateUrl: "views/tests.html",
             controller: "TestsCtrl",
             data: {
@@ -31,7 +31,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
         .state('index.test', {
-            url: "/test",
+            url: "/test/:testId",
             templateUrl: "views/test.html",
             controller: "TestCtrl",
             data: {

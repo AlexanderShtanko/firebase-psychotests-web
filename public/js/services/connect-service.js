@@ -37,8 +37,8 @@ app.service("ConnectService", function ($resource, StorageService, $http) {
     };
 
     this.updateTest = function (testId,test) {
-        var testRef = firebase.database().ref("tests");
-        return testRef.set(updates);
+        var testRef = firebase.database().ref("tests/"+testId);
+        return testRef.set(angular.copy(test));
     };
 
 
