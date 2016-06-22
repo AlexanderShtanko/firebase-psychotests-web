@@ -18,13 +18,14 @@ TestInfo = function () {
 
 TestQuestion = function () {
     this.text = "";
+    this.image = "";
     this.variants = [];
-    this.scores = [];
 }
 
 AnswerVariant = function () {
     this.text = "";
-    this.value = "";
+    this.image = "";
+    this.value = 0;
 }
 
 TestResult = function () {
