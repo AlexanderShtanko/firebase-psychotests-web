@@ -12,19 +12,19 @@ Test = function () {
 TestInfo = function () {
     this.name = "";
     this.desc = "";
-    this.image = "";
+    this.image = null;
     this.category = "";
 };
 
 TestQuestion = function () {
     this.text = "";
-    this.image = "";
+    this.image = null;
     this.variants = [];
 }
 
 AnswerVariant = function () {
     this.text = "";
-    this.image = "";
+    this.image = null;
     this.value = 0;
 }
 

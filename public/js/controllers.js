@@ -182,6 +182,9 @@ function TestCtrl($scope, $rootScope, $location, ConnectService, StorageService,
         $scope.testId = null;
     }
 
+    $scope.clearTestImage = function () {
+        $scope.test.info.image = null;
+    };
 
     $scope.saveTest = function () {
         if ($scope.testId == null) {
@@ -220,6 +223,11 @@ function TestCtrl($scope, $rootScope, $location, ConnectService, StorageService,
     $scope.removeQuestion = function (index) {
         $scope.test.questions.splice(index, 1)
     };
+
+    $scope.uploadTestImage = function(file)
+    {
+        ConnectService.uploadFile(file,function(progress){},function(url){},function(error){});
+    }
 
     $scope.addResult = function () {
         if ($scope.test.results == undefined || $scope.test.results == null) {

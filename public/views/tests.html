@@ -16,62 +16,62 @@
     </div>
 </div>
 
+<div class="wrapper wrapper-content animated fadeInUp">
+
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>Список тестов</h5>
+
+            <div class="ibox-tools">
+                <a class="btn btn-primary btn-xs" ng-click="addNewTest()">Добавить новый тест</a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="widget  p-lg text-center" ng-if="tests==null||tests.length==0">
+                <div class="m-b-md">
+                    <i class="fa fa-meh-o fa-4x"></i>
+
+                    <h1 class="m-xs">Еще нет ни одного теста</h1>
+
+                    <h3 class="font-bold no-margins">
+
+                    </h3>
+
+                </div>
+            </div>
 
 
+            <div class="tests-list">
 
-  <div class="wrapper wrapper-content animated fadeInUp">
-
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Список тестов</h5>
-                            <div class="ibox-tools">
-                                <a class="btn btn-primary btn-xs" ng-click="addNewTest()">Добавить новый тест</a>
-                            </div>
+                <div ng-repeat="(testId,test) in tests">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <span class="label label-primary">{{$index+1}}</span>
+                            <span class="label label-success">{{test.info.category}}</span>
                         </div>
-                        <div class="ibox-content">
-                          <div class="widget  p-lg text-center" ng-if="tests==null||tests.length==0">
-                                  <div class="m-b-md">
-                                      <i class="fa fa-meh-o fa-4x"></i>
-
-                                      <h1 class="m-xs">Еще нет ни одного теста</h1>
-
-                                      <h3 class="font-bold no-margins">
-
-                                      </h3>
-
-                                  </div>
-                              </div>
 
 
-                            <div class="tests-list">
-
-                                    <div ng-repeat="(testId,test) in tests">
-                                    <div class="row">
-                                        <div class="test-category col-lg-1">
-                                            <span class="label label-primary">{{$index+1}}</span>
-                                        </div>
-
-                                        <div class="test-name col-lg-3">
-                                            <h3>{{test.info.name}}</h3>
+                        <div class="test-name col-lg-3">
+                            <h3><img width="30" ng-if="test.info.image!=null&&test.info.image.base64!=undefined"
+                                     src="{{'data:'+test.info.image.filetype+';base64,'+test.info.image.base64}}"/>
+                                {{test.info.name}}</h3>
 
 
-                                        </div>
+                        </div>
 
-                                        <div class="test-name col-lg-3">
-
-                                            {{test.info.desc}}
-                                        </div>
-                                        <div class="test-category col-lg-1">
-                                            <span class="label label-success">{{test.info.category}}</span>
-                                        </div>
-                                        <div class="test-actions col-lg-4 ">
-                                            <a class="btn btn-white btn-sm" ng-click="editTest(testId)"><i class="fa fa-pencil" ></i> Редактировать </a>
-                                            <a class="btn btn-white btn-sm" ng-click="removeTest(testId)"><i class="fa fa-times" ></i> Удалить </a>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                            </div>
+                        <div class="test-name col-lg-3">
+                            {{test.info.desc}}
+                        </div>
+                        <div class="test-actions col-lg-4 ">
+                            <a class="btn btn-white btn-sm" ng-click="editTest(testId)"><i class="fa fa-pencil"></i>
+                                Редактировать </a>
+                            <a class="btn btn-white btn-sm" ng-click="removeTest(testId)"><i class="fa fa-times"></i>
+                                Удалить </a>
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+</div>

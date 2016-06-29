@@ -18,7 +18,8 @@
         'stefanoschrs.angular-trianglify',
         'ngLetterAvatar',
         'datePicker',
-        'ui.select'
+        'ui.select',
+        'naif.base64'
 
     ])
 })();
