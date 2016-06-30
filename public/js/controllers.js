@@ -226,8 +226,10 @@ function TestCtrl($scope, $rootScope, $location, ConnectService, StorageService,
 
     $scope.uploadTestImage = function(file)
     {
-        ConnectService.uploadFile(file,function(progress){},function(url){},function(error){});
-    }
+        ConnectService.uploadFile(file,function(progress){},function(url){
+            $scope.test.info.image = url;
+        },function(error){});
+    };
 
     $scope.addResult = function () {
         if ($scope.test.results == undefined || $scope.test.results == null) {
