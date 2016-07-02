@@ -52,8 +52,8 @@
 
 
                         <div class="test-name col-lg-3">
-                            <h3><img width="30" ng-if="test.info.image!=null&&test.info.image.base64!=undefined"
-                                     src="{{'data:'+test.info.image.filetype+';base64,'+test.info.image.base64}}"/>
+                            <h3><img width="30" ng-show="test.info.image"
+                                     ng-src="{{test.info.image}}"/>
                                 {{test.info.name}}</h3>
 
 

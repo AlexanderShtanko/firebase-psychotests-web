@@ -50,13 +50,11 @@
                         <div class="form-group"><label class="col-lg-2 control-label">Изображение</label>
 
                             <div class="col-lg-10">
-                                <img width="100" ng-if="test.info.image!=null&&test.info.image.base64!=undefined" src="{{'data:'+test.info.image.filetype+';base64,'+test.info.image.base64}}"/>
-                                <a class="btn btn-white btn-bitbucket" ng-if="test.info.image!=null&&test.info.image.base64!=undefined>1" ng-click="clearTestImage()">
+                                <img width="100" ng-show="test.info.image" ng-src="{{test.info.image}}"/>
+                                <a class="btn btn-white btn-bitbucket" ng-if="test.info.image!=null" ng-click="clearTestImage()">
                                     <i class="fa fa-times"></i>
                                 </a>
-                                <input type="file" ng-model="test.info.image" accept="image/*" maxsize="100" base-sixty-four-input>
-                                <span ng-show="test.info.image.$error.maxsize">Файл должен быть не больше 100 KB</span>
-
+                                <input type="file" custom-on-change="uploadTestImage" accept="image/*" maxsize="100" >
                             </div>
                         </div>
                     </form>

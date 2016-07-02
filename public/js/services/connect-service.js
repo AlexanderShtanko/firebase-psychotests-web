@@ -22,13 +22,30 @@ app.service("ConnectService", function ($resource, StorageService, $http) {
     };
 
     this.uploadFile = function (file, progressCallback, successCallback, errorCallback) {
+
+        function makeid()
+        {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( var i=0; i < 5; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        }
+
+        function getExt(filename)
+        {
+            return filename.split('.').pop();
+        }
+
         var storageRef = firebase.storage().ref();
 
         var metadata = {
             contentType: 'image/*'
         };
 
-        var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
+        var uploadTask = storageRef.child('images/' + makeid()+getExt(file.name)).put(file, metadata);
 
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
             function (snapshot) {

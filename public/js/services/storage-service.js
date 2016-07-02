@@ -11,8 +11,8 @@ app.service("StorageService", function (localStorageService) {
         return localStorageService.get("token");
     };
 
-    this.setProfile = function (token) {
-        localStorageService.set("profile", token);
+    this.setProfile = function (profile) {
+        localStorageService.set("profile", profile);
     };
     this.getProfile = function () {
         return localStorageService.get("profile");

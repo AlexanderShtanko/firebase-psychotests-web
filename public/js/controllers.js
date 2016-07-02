@@ -61,8 +61,20 @@ function IndexCtrl($scope, $location, StorageService) {
 function MainCtrl($scope, ConnectService, StorageService, toaster) {
     var self = this;
 
-    this.userName = 'Example user';
+    this.userName = '';
     this.descriptionText = '';
+
+
+    $scope.getProfile = function () {
+        return StorageService.getProfile();
+    };
+
+    $scope.$watch('getProfile()', function (newValue, oldValue) {
+        if(newValue!=null)
+        {
+            self.userName = newValue;
+        }
+    });
 };
 
 function TestsCtrl($scope, ConnectService, $rootScope, StorageService, toaster, $location, $uibModal) {
@@ -224,11 +236,17 @@ function TestCtrl($scope, $rootScope, $location, ConnectService, StorageService,
         $scope.test.questions.splice(index, 1)
     };
 
-    $scope.uploadTestImage = function(file)
+    $scope.uploadTestImage = function(event)
     {
+        var file = event.target.files[0];
+
         ConnectService.uploadFile(file,function(progress){},function(url){
+            $scope.test.info.image = null;
             $scope.test.info.image = url;
-        },function(error){});
+            console.log(url);
+        },function(error){
+            console.log(error);
+        });
     };
 
     $scope.addResult = function () {
@@ -322,6 +340,8 @@ function LoginCtrl($scope, $rootScope, $location, ConnectService, StorageService
         ConnectService.login(email, password).then(function (data) {
             console.log(data);
             StorageService.setToken(data.refreshToken);
+            StorageService.setProfile(data.email);
+
             $rootScope.$apply(function () {
                 $location.path("/index");
                 console.log($location.path());
