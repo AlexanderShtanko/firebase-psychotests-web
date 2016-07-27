@@ -14,6 +14,7 @@ TestInfo = function () {
     this.desc = "";
     this.image = null;
     this.category = "";
+	this.dateAdd = (new Date()).getTime();
 };
 
 TestQuestion = function () {

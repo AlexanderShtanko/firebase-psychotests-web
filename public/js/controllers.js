@@ -199,6 +199,8 @@ function TestCtrl($scope, $rootScope, $location, ConnectService, StorageService,
     };
 
     $scope.saveTest = function () {
+		if($scope.test.info.dateAdd == undefined)
+			$scope.test.info.dateAdd = (new Date()).getTime();
         if ($scope.testId == null) {
             ConnectService.addTest($scope.test).then(function (data) {
                 console.log(data);
